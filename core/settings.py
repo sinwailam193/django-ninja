@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "devices",
     "django_extensions",
+    "ninja_extra",
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,14 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+NINJA_EXTRA = {
+    "THROTTLE_CLASSES": [
+        "ninja_extra.throttling.AnonRateThrottle",
+        "ninja_extra.throttling.UserRateThrottle",
+    ],
+    "THROTTLE_RATES": {
+        "user": "1000/day",
+        "anon": "100/day",
+    },
+}

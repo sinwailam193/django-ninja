@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from devices.views import api
+
+from devices.api import api
 
 urlpatterns = [
     path("admin/", admin.site.urls),
